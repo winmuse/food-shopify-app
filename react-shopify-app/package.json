@@ -1,0 +1,60 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@shopify/polaris": "^1.1.1",
+    "axios": "^0.16.2",
+    "firebase": "^7.16.1",
+    "http-proxy-middleware": "^1.0.5",
+    "jquery": "^3.5.1",
+    "jsqr": "^1.3.1",
+    "lodash": "^4.17.4",
+    "medium-zoom": "^1.0.6",
+    "react": "^16.13.1",
+    "react-blink-text": "^1.0.5",
+    "react-color": "^2.18.1",
+    "react-dom": "^16.2.0",
+    "react-ga": "^3.1.2",
+    "react-github-btn": "^1.2.0",
+    "react-horizontal-scrolling-menu": "^0.7.7",
+    "react-images-upload": "^1.2.8",
+    "react-indiana-drag-scroll": "^1.6.1",
+    "react-lazy-load": "^3.1.13",
+    "react-lazyload": "^3.0.0",
+    "react-modal": "^3.11.2",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "react-scripts": "1.0.13",
+    "react-scroll-horizontal": "^1.6.4",
+    "react-sticky-box": "^0.9.3",
+    "react-switch": "^5.0.1",
+    "react-to-print": "^2.10.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.2.0",
+    "shopify-buy": "^1.2.0",
+    "tcb-js-sdk": "^1.10.8",
+    "url-search-params": "^0.9.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "flow": "flow"
+  },
+  "proxy": {
+    "/": {
+      "target": "http://localhost:3002"
+    }
+  },
+  "devDependencies": {
+    "enzyme": "^2.9.1",
+    "flow-bin": "^0.53.1",
+    "react-test-renderer": "^15.6.1"
+  }
+}

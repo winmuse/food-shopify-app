@@ -1,0 +1,146 @@
+-------------------------------------------------------------------------------------------------------------------
+mutation {
+  appSubscriptionCreate(
+    name: "lite"
+    trialDays: 7
+    test:true
+    returnUrl: "http://dining-barprimavera.myshopify.com/admin/apps/excuseme"
+    lineItems: [{
+      plan: {
+        appRecurringPricingDetails: {
+            price: { amount: 14.99, currencyCode: USD }
+        }
+      }
+    }]
+  ) {
+    userErrors {
+      field
+      message
+    }
+    confirmationUrl
+    appSubscription {
+      id
+    }
+  }
+}
+--------------------------------------------------------------------------------------------------------------------
+{
+    "data": {
+        "appSubscriptionCreate": {
+            "userErrors": [],
+            "confirmationUrl": "https://dining-barprimavera.myshopify.com/admin/charges/18598953121/confirm_recurring_application_charge?signature=BAh7BzoHaWRsKwihgJVUBAA6EmF1dG9fYWN0aXZhdGVU--203744e5e5c59f7498b6778b80225480762b13bd",
+            "appSubscription": {
+                "id": "gid://shopify/AppSubscription/18598953121"
+            }
+        }
+    },
+    "extensions": {
+        "cost": {
+            "requestedQueryCost": 10,
+            "actualQueryCost": 10,
+            "throttleStatus": {
+                "maximumAvailable": 1000.0,
+                "currentlyAvailable": 990,
+                "restoreRate": 50.0
+            }
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------
+query {
+  node(id: "gid://shopify/AppSubscription/18598953121") {
+    ...on AppSubscription {
+      createdAt
+      currentPeriodEnd
+      id
+      name
+      status
+      test
+      lineItems {
+        plan {
+          pricingDetails {
+            ...on AppRecurringPricing {
+              interval
+              price {
+                amount
+                currencyCode
+              }
+
+            }
+            ...on AppUsagePricing {
+              terms
+              cappedAmount {
+                amount
+                currencyCode
+
+              }
+              balanceUsed {
+                amount
+                currencyCode
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+-----------------------------------------------------------------------------------------------------------------------
+{
+    "data": {
+        "node": {
+            "createdAt": "2020-09-15T21:56:28Z",
+            "currentPeriodEnd": null,
+            "id": "gid://shopify/AppSubscription/18598953121",
+            "name": "lite",
+            "status": "PENDING",
+            "test": true,
+            "lineItems": [
+                {
+                    "plan": {
+                        "pricingDetails": {
+                            "interval": "EVERY_30_DAYS",
+                            "price": {
+                                "amount": "14.99",
+                                "currencyCode": "USD"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "extensions": {
+        "cost": {
+            "requestedQueryCost": 4,
+            "actualQueryCost": 4,
+            "throttleStatus": {
+                "maximumAvailable": 1000.0,
+                "currentlyAvailable": 996,
+                "restoreRate": 50.0
+            }
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------
+The status of the app subscription. Possible values include pending, active, declined, expired, frozen, and cancelled.
+-----------------------------------------------------------------------------------------------------------------------
+start trial --> active
+-----------------------------------------------------------------------------------------------------------------------
+======== {"data":{"appSubscriptionCreate":{"userErrors":[],"confirmationUrl":"https:\/\/dining-barprimavera.myshopify.com\/admin\/charges\/18600886433\/confirm_recurring_application_charge?signature=BAh7BzoHaWRsKwihALNUBAA6EmF1dG9fYWN0aXZhdGVU--85cc1b8854481f78081241061bfc1ef67d720c48","appSubscription":{"id":"gid:\/\/shopify\/AppSubscription\/18600886433"}}},"extensions":{"cost":{"requestedQueryCost":10,"actualQueryCost":10,"throttleStatus":{"maximumAvailable":1000.0,"currentlyAvailable":990,"restoreRate":50.0}}}}
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+
+
+https://app.excuseme.jp/api/hook/customersView
+https://app.excuseme.jp/api/hook/customersDelete
+https://app.excuseme.jp/api/hook/shopDelete
+
